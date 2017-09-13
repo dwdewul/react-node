@@ -8,11 +8,14 @@
     "npm": "5.4.1"
   },
   "scripts": {
-    "start": "node index.js"  
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "David DeWulf",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
   }
 }
