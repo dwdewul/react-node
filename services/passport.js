@@ -15,6 +15,12 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// const fetchData = async (url) => {
+//   const res = await fetch(url);
+//   const json = await res.json();
+//   console.log(json);
+// }
+
 passport.use(
   new GoogleStrategy(
     {
@@ -23,16 +29,15 @@ passport.use(
       callbackURL: "/auth/google/callback",
       proxy: true,
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id }).then(existingUser => {
-        if (existingUser) {
-          done(null, existingUser);
-        } else {
-          new User({ googleId: profile.id })
-            .save()
-            .then(user => done(null, existingUser));
-        }
-      });
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id })
+
+      if (existingUser) {
+        done(null, existingUser);
+      } else {
+        const user = await new User({ googleId: profile.id }).save();
+        done(null, user)
+      }
     }
   )
 );
