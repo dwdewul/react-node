@@ -9,6 +9,10 @@ import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
+//For development purposes
+import axios from 'axios';
+window.axios = axios;
+
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
@@ -19,5 +23,5 @@ ReactDOM.render(
      document.getElementById("root")
     );
 
-console.log('Stripe Key: ', process.env.REACT_APP_STRIPE_KEY);
+// console.log('Stripe Key: ', process.env.REACT_APP_STRIPE_KEY);
 console.log('Environment is: ', process.env.NODE_ENV);
