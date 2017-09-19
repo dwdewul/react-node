@@ -10,7 +10,8 @@ class Header extends Component {
                 return;
             case false:
                 return (
-                    <li><a href="auth/google">Login</a></li>
+                    <li><a href="auth/google">Login<i className="material-icons">perm_identity</i></a></li>
+    
                 )
             default:
                 return [
@@ -26,9 +27,10 @@ class Header extends Component {
         // console.log(this.props);
         return (
             <nav>
-                <div className="nav-wrapper">
+                <div className="nav-wrapper indigo darken-1">
                 <Link 
                     to={this.props.auth ? '/surveys': '/'} 
+                    style={{ paddingLeft: 10 }}
                     className="left brand-logo"
                 >
                 Emailify
