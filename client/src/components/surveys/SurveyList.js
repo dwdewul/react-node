@@ -21,8 +21,8 @@ class SurveyList extends Component {
                         </p>
                     </div>
                     <div className="card-action">
-                        <a>Yes: {survey.yes}</a>
-                        <a>No: {survey.no}</a>
+                        <a>Yes: {(survey.yes).toLocaleString()}</a>
+                        <a>No: {(survey.no).toLocaleString()}</a>
                     </div>
                 </div>
             );
