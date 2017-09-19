@@ -27,7 +27,7 @@ class Header extends Component {
         // console.log(this.props);
         return (
             <nav>
-                <div className="nav-wrapper indigo darken-1">
+                <div className="nav-wrapper amber darken-1">
                 <Link 
                     to={this.props.auth ? '/surveys': '/'} 
                     style={{ paddingLeft: 10 }}
